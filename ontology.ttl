@@ -1,0 +1,674 @@
+@prefix : <http://www.owl-ontologies.com/ont#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.owl-ontologies.com/ont#> .
+
+<http://www.owl-ontologies.com/ont#> rdf:type owl:Ontology ;
+                                      <http://purl.org/dc/elements/1.1/creator> "Christian Moya Royo" ;
+                                      <http://purl.org/dc/elements/1.1/title> "Smart Tourism Ontology"@en ;
+                                      <http://purl.org/dc/terms/abstract> "Ontology for representing concepts and entities related to smart tourism, including hotels, attractions, restaurants, transports and events."@en ;
+                                      <http://purl.org/dc/terms/description> "This ontology models the main components of smart tourism, connecting cities with their services and events through semantic relationships."@en ;
+                                      <http://purl.org/dc/terms/license> "Creative Commons Attribution 4.0 International (CC BY 4.0)"@en ;
+                                      owl:versionInfo "0.0.1" ;
+                                      <https://w3id.org/mod#createdWith> <https://chowlk.linkeddata.es/> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/mod#createdWith
+<https://w3id.org/mod#createdWith> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.owl-ontologies.com/ont#availableIn
+:availableIn rdf:type owl:ObjectProperty ;
+             rdfs:domain :Transport ;
+             rdfs:range :City ;
+             rdfs:comment "\"Indicates that a transport option is available in a specific city.\"" ;
+             rdfs:label "available in" .
+
+
+###  http://www.owl-ontologies.com/ont#happensIn
+:happensIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :Event ;
+           rdfs:range :City ;
+           rdfs:comment "\"Links an event to the city where it occurs.\"" ;
+           rdfs:label "happens in" .
+
+
+###  http://www.owl-ontologies.com/ont#hasAttraction
+:hasAttraction rdf:type owl:ObjectProperty ;
+               rdfs:domain :City ;
+               rdfs:range :Attraction ;
+               rdfs:comment "\"Links a city to its tourist attractions.\"" ;
+               rdfs:label "has attraction" .
+
+
+###  http://www.owl-ontologies.com/ont#hasEvent
+:hasEvent rdf:type owl:ObjectProperty ;
+          rdfs:domain :City ;
+          rdfs:range :Event ;
+          rdfs:comment "\"Specifies that a city offers scheduled events.\"" ;
+          rdfs:label "has event" .
+
+
+###  http://www.owl-ontologies.com/ont#hasHotel
+:hasHotel rdf:type owl:ObjectProperty ;
+          rdfs:domain :City ;
+          rdfs:range :Hotel ;
+          rdfs:comment "\"Indicates hotels available in a given city.\"" ;
+          rdfs:label "has hotel" .
+
+
+###  http://www.owl-ontologies.com/ont#hasRestaurant
+:hasRestaurant rdf:type owl:ObjectProperty ;
+               rdfs:domain :City ;
+               rdfs:range :Restaurant ;
+               rdfs:comment "\"Indicates restaurants available in a given city.\"" ;
+               rdfs:label "has restaurant" .
+
+
+###  http://www.owl-ontologies.com/ont#hasTransport
+:hasTransport rdf:type owl:ObjectProperty ;
+              rdfs:domain :City ;
+              rdfs:range :Transport ;
+              rdfs:comment "\"Specifies that a city has access to various means of transport.\"" ;
+              rdfs:label "has transport" .
+
+
+###  http://www.owl-ontologies.com/ont#hostsEvent
+:hostsEvent rdf:type owl:ObjectProperty ;
+            rdfs:domain :Hotel ;
+            rdfs:range :Event ;
+            rdfs:comment "\"Specifies that a hotel hosts or organizes events.\"" .
+
+
+###  http://www.owl-ontologies.com/ont#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :Attraction ,
+                       :Hotel ,
+                       :Restaurant ;
+           rdfs:range :City ;
+           rdfs:comment "\"Links an entity (e.g. hotel, restaurant, attraction) to the city where it is located.\"" ;
+           rdfs:label "located in" .
+
+
+###  http://www.owl-ontologies.com/ont#offersService
+:offersService rdf:type owl:ObjectProperty ;
+               rdfs:domain :Hotel ;
+               rdfs:range :Restaurant ;
+               rdfs:comment "\"Indicates that a hotel offers access to a restaurant service.\"" ;
+               rdfs:label "offers service" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.owl-ontologies.com/ont#averageCost
+:averageCost rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Transport ;
+             rdfs:range xsd:float ;
+             rdfs:comment "..." ;
+             rdfs:label "averageCost" .
+
+
+###  http://www.owl-ontologies.com/ont#averagePrice
+:averagePrice rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Restaurant ;
+              rdfs:range xsd:float ;
+              rdfs:comment "..." ;
+              rdfs:label "averagePrice" .
+
+
+###  http://www.owl-ontologies.com/ont#company
+:company rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Transport ;
+         rdfs:range xsd:string ;
+         rdfs:comment "..." ;
+         rdfs:label "company" .
+
+
+###  http://www.owl-ontologies.com/ont#cuisineType
+:cuisineType rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Restaurant ;
+             rdfs:range xsd:string ;
+             rdfs:comment "..." ;
+             rdfs:label "cuisineType" .
+
+
+###  http://www.owl-ontologies.com/ont#date
+:date rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Event ;
+      rdfs:range xsd:date ;
+      rdfs:comment "date" ;
+      rdfs:label "date" .
+
+
+###  http://www.owl-ontologies.com/ont#hotelType
+:hotelType rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Hotel ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Bla bla bla" ;
+           rdfs:label "hotelType" .
+
+
+###  http://www.owl-ontologies.com/ont#location
+:location rdf:type owl:DatatypeProperty ;
+          rdfs:domain :City ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Where are me?" ;
+          rdfs:label "location" .
+
+
+###  http://www.owl-ontologies.com/ont#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Attraction ,
+                  :City ,
+                  :Event ,
+                  :Hotel ,
+                  :Restaurant ;
+      rdfs:range xsd:string ;
+      rdfs:comment "What is my name?" ;
+      rdfs:label "name" .
+
+
+###  http://www.owl-ontologies.com/ont#pricePerNight
+:pricePerNight rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Hotel ;
+               rdfs:range xsd:float ;
+               rdfs:comment "Excuse me, Sir,What is the price for 1 night?" ;
+               rdfs:label "pricePerNight" .
+
+
+###  http://www.owl-ontologies.com/ont#rating
+:rating rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Attraction ,
+                    :Hotel ,
+                    :Restaurant ;
+        rdfs:range xsd:float ;
+        rdfs:comment "My personal score is..." ;
+        rdfs:label "rating" .
+
+
+###  http://www.owl-ontologies.com/ont#stars
+:stars rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Hotel ;
+       rdfs:range xsd:int ;
+       rdfs:comment "..." ;
+       rdfs:label "stars" .
+
+
+###  http://www.owl-ontologies.com/ont#transportType
+:transportType rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Transport ;
+               rdfs:range xsd:string ;
+               rdfs:comment "..." ;
+               rdfs:label "transportType" .
+
+
+###  http://www.owl-ontologies.com/ont#type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Attraction ,
+                  :Event ;
+      rdfs:range xsd:string ;
+      rdfs:comment "..." ;
+      rdfs:label "type" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.owl-ontologies.com/ont#Attraction
+:Attraction rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasAttraction ;
+                                  owl:someValuesFrom :City
+                                ] ;
+            rdfs:comment "\"A place of interest for tourists or visitors\"" ;
+            rdfs:label "Attraction" .
+
+
+###  http://www.owl-ontologies.com/ont#Bike
+:Bike rdf:type owl:Class ;
+      rdfs:subClassOf :Private ;
+      rdfs:comment "\"Two wheels, zero emissions, and 100% chance of sore legs.\"" ;
+      rdfs:label "Bike" .
+
+
+###  http://www.owl-ontologies.com/ont#Budget
+:Budget rdf:type owl:Class ;
+        rdfs:subClassOf :Hotel ;
+        rdfs:comment "\"An affordable hotel with basic amenities.\"" ;
+        rdfs:label "Budget" .
+
+
+###  http://www.owl-ontologies.com/ont#Bus
+:Bus rdf:type owl:Class ;
+     rdfs:subClassOf :Public ;
+     rdfs:comment "\"A magical box that stops at every corner and always arrives when you give up.\"" ;
+     rdfs:label "Bus" .
+
+
+###  http://www.owl-ontologies.com/ont#Business
+:Business rdf:type owl:Class ;
+          rdfs:subClassOf :Hotel ;
+          rdfs:comment "\"A hotel designed for business travelers with work-oriented services.\"" ;
+          rdfs:label "Business" .
+
+
+###  http://www.owl-ontologies.com/ont#ChillAndRelax
+:ChillAndRelax rdf:type owl:Class ;
+               rdfs:subClassOf :Restaurant ;
+               rdfs:comment "\"Come for the food, stay because you forgot what day it is. Cozy vibes included.\"" ;
+               rdfs:label "ChillAndRelax" .
+
+
+###  http://www.owl-ontologies.com/ont#City
+:City rdf:type owl:Class ;
+      rdfs:comment "\"A large human settlement where attractions, events, and services are offered.\"" ;
+      rdfs:label "City" .
+
+
+###  http://www.owl-ontologies.com/ont#Cultural
+:Cultural rdf:type owl:Class ;
+          rdfs:subClassOf :Event ;
+          rdfs:comment "\"An event showcasing artistic or traditional cultural expression.\"" ;
+          rdfs:label "Cultural" .
+
+
+###  http://www.owl-ontologies.com/ont#Event
+:Event rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :date ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:date
+                           ] ;
+       rdfs:comment "\"An organized occasion taking place at a specific time and location.\"" ;
+       rdfs:label "Event" .
+
+
+###  http://www.owl-ontologies.com/ont#FastFood
+:FastFood rdf:type owl:Class ;
+          rdfs:subClassOf :Restaurant ;
+          rdfs:comment "\"Where flavor meets speed and nutrition negotiates with ketchup.\"" ;
+          rdfs:label "FastFood" .
+
+
+###  http://www.owl-ontologies.com/ont#Festival
+:Festival rdf:type owl:Class ;
+          rdfs:subClassOf :Event ;
+          rdfs:comment "\"A celebration or cultural event, often recurring annually.\"" ;
+          rdfs:label "Festival" .
+
+
+###  http://www.owl-ontologies.com/ont#Hotel
+:Hotel rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :locatedIn ;
+                             owl:someValuesFrom :City
+                           ] ;
+       rdfs:comment "\"An establishment providing accommodation to travelers and guests.\"" ;
+       rdfs:label "Hotel" .
+
+
+###  http://www.owl-ontologies.com/ont#Luxury
+:Luxury rdf:type owl:Class ;
+        rdfs:subClassOf :Hotel ;
+        rdfs:comment "\"A high-end hotel offering premium services and comfort.\"" ;
+        rdfs:label "Luxury" .
+
+
+###  http://www.owl-ontologies.com/ont#Metro
+:Metro rdf:type owl:Class ;
+       rdfs:subClassOf :Public ;
+       rdfs:comment "\"Underground hope and despair on rails. Mind the gap.\"" ;
+       rdfs:label "Metro" .
+
+
+###  http://www.owl-ontologies.com/ont#Monument
+:Monument rdf:type owl:Class ;
+          rdfs:subClassOf :Attraction ;
+          rdfs:comment "\"A structure erected to commemorate a person or event.\"" ;
+          rdfs:label "Monument" .
+
+
+###  http://www.owl-ontologies.com/ont#Museum
+:Museum rdf:type owl:Class ;
+        rdfs:subClassOf :Attraction ;
+        rdfs:comment "\"A building where historical, scientific, or artistic items are exhibited.\"" ;
+        rdfs:label "Museum" .
+
+
+###  http://www.owl-ontologies.com/ont#Park
+:Park rdf:type owl:Class ;
+      rdfs:subClassOf :Attraction ;
+      rdfs:comment "\"A public green area for recreation.\"" ;
+      rdfs:label "Park" .
+
+
+###  http://www.owl-ontologies.com/ont#Private
+:Private rdf:type owl:Class ;
+         rdfs:subClassOf :Transport ;
+         rdfs:comment "\"Because sometimes you just want to travel with questionable music alone.\"" ;
+         rdfs:label "Private" .
+
+
+###  http://www.owl-ontologies.com/ont#Public
+:Public rdf:type owl:Class ;
+        rdfs:subClassOf :Transport ;
+        rdfs:comment "\"You’ll get there eventually—just not alone.\"" ;
+        rdfs:label "Public" .
+
+
+###  http://www.owl-ontologies.com/ont#Restaurant
+:Restaurant rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :locatedIn ;
+                                  owl:someValuesFrom :City
+                                ] ;
+            rdfs:comment "\"A place where meals are served to customers.\"" ;
+            rdfs:label "Restaurant" .
+
+
+###  http://www.owl-ontologies.com/ont#Sports
+:Sports rdf:type owl:Class ;
+        rdfs:subClassOf :Event ;
+        rdfs:comment "\"An event involving athletic competition or physical activities.\"" ;
+        rdfs:label "Sports" .
+
+
+###  http://www.owl-ontologies.com/ont#Taxi
+:Taxi rdf:type owl:Class ;
+      rdfs:subClassOf :Private ;
+      rdfs:comment "\"For when you're late, wet, or existentially done with walking.\"" ;
+      rdfs:label "Taxi" .
+
+
+###  http://www.owl-ontologies.com/ont#Traditional
+:Traditional rdf:type owl:Class ;
+             rdfs:subClassOf :Restaurant ;
+             rdfs:comment "\"Grandma would approve. Local dishes served without pretension (or avocado foam).\"" ;
+             rdfs:label "Traditional" .
+
+
+###  http://www.owl-ontologies.com/ont#Transport
+:Transport rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasTransport ;
+                                 owl:someValuesFrom :City
+                               ] ;
+           rdfs:comment "\"A means of movement available within a city.\"" ;
+           rdfs:label "Transport" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://dbpedia.org/resource/Barcelona
+<http://dbpedia.org/resource/Barcelona> rdf:type owl:NamedIndividual ;
+                                        owl:sameAs :Barcelona .
+
+
+###  http://www.owl-ontologies.com/ont#Barcelona
+
+###  http://dbpedia.org/resource/Barcelona_Metro
+<http://dbpedia.org/resource/Barcelona_Metro> rdf:type owl:NamedIndividual ;
+                                              owl:sameAs :Metro_Barcelona .
+
+
+###  http://www.owl-ontologies.com/ont#Metro_Barcelona
+
+###  http://dbpedia.org/resource/Park_Güell
+<http://dbpedia.org/resource/Park_Güell> rdf:type owl:NamedIndividual ;
+                                         owl:sameAs :Guell .
+
+
+###  http://www.owl-ontologies.com/ont#Guell
+
+###  http://www.owl-ontologies.com/ont#Barcelona
+:Barcelona rdf:type owl:NamedIndividual ,
+                    :City ;
+           :location "Catalonia, Spain" ;
+           :name "Barcelona" ;
+           rdfs:comment "A major Spanish city known for tourism, culture, and architecture." ;
+           rdfs:label "Barcelona" .
+
+
+###  http://www.owl-ontologies.com/ont#Disfrutar
+:Disfrutar rdf:type owl:NamedIndividual ,
+                    :Traditional ;
+           :locatedIn :Barcelona ;
+           :averagePrice "30.0"^^xsd:float ;
+           :cuisineType "Spanish" ;
+           :name "Antigua" ;
+           :rating "4.5"^^xsd:float ;
+           rdfs:comment "A traditional restaurant" ;
+           rdfs:label "Antigua" .
+
+
+###  http://www.owl-ontologies.com/ont#GaudiTour
+:GaudiTour rdf:type owl:NamedIndividual ,
+                    :Cultural ;
+           :happensIn :Barcelona ;
+           :date "2025-03-20"^^xsd:date ;
+           :name "Gaudí Tour" ;
+           :type "Architecture Tour" ;
+           rdfs:comment "A cultural walking tour focused on Gaudí's works in Barcelona." ;
+           rdfs:label "Gaudí Tour" .
+
+
+###  http://www.owl-ontologies.com/ont#Guell
+:Guell rdf:type owl:NamedIndividual ,
+                :Park ;
+       :locatedIn :Barcelona ;
+       :name "Park Güell" ;
+       :rating "4.7"^^xsd:float ;
+       :type "Public Park" ;
+       rdfs:comment "One of the most iconic parks in Barcelona, designed by Gaudí." ;
+       rdfs:label "Park Güell" .
+
+
+###  http://www.owl-ontologies.com/ont#HotelRitz
+:HotelRitz rdf:type owl:NamedIndividual ,
+                    :Luxury ;
+           :locatedIn :Barcelona ;
+           :name "The Palace Barcelona" ;
+           :pricePerNight "400.0"^^xsd:float ;
+           :rating "4.8"^^xsd:float ;
+           :stars 5 ;
+           rdfs:comment "The Palace Barcelona is the oldest luxury hotel in the city. Our timelines have coincided from the beginning, and we continue to make history together." ;
+           rdfs:label "The Palace Barcelona" .
+
+
+###  http://www.owl-ontologies.com/ont#Metro_Barcelona
+:Metro_Barcelona rdf:type owl:NamedIndividual ,
+                          :Metro ;
+                 :availableIn :Barcelona ;
+                 :averageCost "2.4"^^xsd:float ;
+                 :company "TMB" ;
+                 :name "Barcelona Metro" ;
+                 :transportType "Underground" ;
+                 rdfs:comment "The city's main underground public transport system." ;
+                 rdfs:label "Metro Barcelona" .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.owl-ontologies.com/e> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.owl-ontologies.com/t> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.owl-ontologies.com/r> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.owl-ontologies.com/p> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:h rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:s rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a restaurant has an average price greater than 50, it is considered expensive." ;
+   rdfs:label "ExpensiveRestaurant" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Restaurant ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/r>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :averagePrice ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/r> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.owl-ontologies.com/p>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <http://www.owl-ontologies.com/p> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 50 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Restaurant ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/r>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a hotel has more than 4 stars, it is classified as Luxury." ;
+   rdfs:label "HotelToLuxury" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Hotel ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :h
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :stars ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :h ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :s
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :s ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Luxury ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :h
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an event has the type \"Festival\", it is classified as a Festival." ;
+   rdfs:label "EventToFestival" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Event ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/e>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :type ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/e> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.owl-ontologies.com/t>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <http://www.owl-ontologies.com/t> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first "Festival" ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Festival ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/e>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

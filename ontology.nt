@@ -1,0 +1,625 @@
+<http://www.owl-ontologies.com/ont#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.owl-ontologies.com/ont#> <http://purl.org/dc/elements/1.1/creator> "Christian Moya Royo" .
+<http://www.owl-ontologies.com/ont#> <http://purl.org/dc/elements/1.1/title> "Smart Tourism Ontology"@en .
+<http://www.owl-ontologies.com/ont#> <http://purl.org/dc/terms/abstract> "Ontology for representing concepts and entities related to smart tourism, including hotels, attractions, restaurants, transports and events."@en .
+<http://www.owl-ontologies.com/ont#> <http://purl.org/dc/terms/description> "This ontology models the main components of smart tourism, connecting cities with their services and events through semantic relationships."@en .
+<http://www.owl-ontologies.com/ont#> <http://purl.org/dc/terms/license> "Creative Commons Attribution 4.0 International (CC BY 4.0)"@en .
+<http://www.owl-ontologies.com/ont#> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.1" .
+<http://www.owl-ontologies.com/ont#> <https://w3id.org/mod#createdWith> <https://chowlk.linkeddata.es/> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2002/07/owl#versionInfo
+<http://www.w3.org/2002/07/owl#versionInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://w3id.org/mod#createdWith
+<https://w3id.org/mod#createdWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.owl-ontologies.com/ont#availableIn
+<http://www.owl-ontologies.com/ont#availableIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#availableIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#availableIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#availableIn> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Indicates that a transport option is available in a specific city.\"" .
+<http://www.owl-ontologies.com/ont#availableIn> <http://www.w3.org/2000/01/rdf-schema#label> "available in" .
+# 
+# http://www.owl-ontologies.com/ont#happensIn
+<http://www.owl-ontologies.com/ont#happensIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#happensIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#happensIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#happensIn> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Links an event to the city where it occurs.\"" .
+<http://www.owl-ontologies.com/ont#happensIn> <http://www.w3.org/2000/01/rdf-schema#label> "happens in" .
+# 
+# http://www.owl-ontologies.com/ont#hasAttraction
+<http://www.owl-ontologies.com/ont#hasAttraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#hasAttraction> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#hasAttraction> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#hasAttraction> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Links a city to its tourist attractions.\"" .
+<http://www.owl-ontologies.com/ont#hasAttraction> <http://www.w3.org/2000/01/rdf-schema#label> "has attraction" .
+# 
+# http://www.owl-ontologies.com/ont#hasEvent
+<http://www.owl-ontologies.com/ont#hasEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#hasEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#hasEvent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#hasEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Specifies that a city offers scheduled events.\"" .
+<http://www.owl-ontologies.com/ont#hasEvent> <http://www.w3.org/2000/01/rdf-schema#label> "has event" .
+# 
+# http://www.owl-ontologies.com/ont#hasHotel
+<http://www.owl-ontologies.com/ont#hasHotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#hasHotel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#hasHotel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#hasHotel> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Indicates hotels available in a given city.\"" .
+<http://www.owl-ontologies.com/ont#hasHotel> <http://www.w3.org/2000/01/rdf-schema#label> "has hotel" .
+# 
+# http://www.owl-ontologies.com/ont#hasRestaurant
+<http://www.owl-ontologies.com/ont#hasRestaurant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#hasRestaurant> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#hasRestaurant> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#hasRestaurant> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Indicates restaurants available in a given city.\"" .
+<http://www.owl-ontologies.com/ont#hasRestaurant> <http://www.w3.org/2000/01/rdf-schema#label> "has restaurant" .
+# 
+# http://www.owl-ontologies.com/ont#hasTransport
+<http://www.owl-ontologies.com/ont#hasTransport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#hasTransport> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#hasTransport> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#hasTransport> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Specifies that a city has access to various means of transport.\"" .
+<http://www.owl-ontologies.com/ont#hasTransport> <http://www.w3.org/2000/01/rdf-schema#label> "has transport" .
+# 
+# http://www.owl-ontologies.com/ont#hostsEvent
+<http://www.owl-ontologies.com/ont#hostsEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#hostsEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#hostsEvent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#hostsEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Specifies that a hotel hosts or organizes events.\"" .
+# 
+# http://www.owl-ontologies.com/ont#locatedIn
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Links an entity (e.g. hotel, restaurant, attraction) to the city where it is located.\"" .
+<http://www.owl-ontologies.com/ont#locatedIn> <http://www.w3.org/2000/01/rdf-schema#label> "located in" .
+# 
+# http://www.owl-ontologies.com/ont#offersService
+<http://www.owl-ontologies.com/ont#offersService> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.owl-ontologies.com/ont#offersService> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#offersService> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#offersService> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Indicates that a hotel offers access to a restaurant service.\"" .
+<http://www.owl-ontologies.com/ont#offersService> <http://www.w3.org/2000/01/rdf-schema#label> "offers service" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.owl-ontologies.com/ont#averageCost
+<http://www.owl-ontologies.com/ont#averageCost> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#averageCost> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#averageCost> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#averageCost> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#averageCost> <http://www.w3.org/2000/01/rdf-schema#label> "averageCost" .
+# 
+# http://www.owl-ontologies.com/ont#averagePrice
+<http://www.owl-ontologies.com/ont#averagePrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#averagePrice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#averagePrice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#averagePrice> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#averagePrice> <http://www.w3.org/2000/01/rdf-schema#label> "averagePrice" .
+# 
+# http://www.owl-ontologies.com/ont#company
+<http://www.owl-ontologies.com/ont#company> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#company> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#company> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#company> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#company> <http://www.w3.org/2000/01/rdf-schema#label> "company" .
+# 
+# http://www.owl-ontologies.com/ont#cuisineType
+<http://www.owl-ontologies.com/ont#cuisineType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#cuisineType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#cuisineType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#cuisineType> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#cuisineType> <http://www.w3.org/2000/01/rdf-schema#label> "cuisineType" .
+# 
+# http://www.owl-ontologies.com/ont#date
+<http://www.owl-ontologies.com/ont#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.owl-ontologies.com/ont#date> <http://www.w3.org/2000/01/rdf-schema#comment> "date" .
+<http://www.owl-ontologies.com/ont#date> <http://www.w3.org/2000/01/rdf-schema#label> "date" .
+# 
+# http://www.owl-ontologies.com/ont#hotelType
+<http://www.owl-ontologies.com/ont#hotelType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#hotelType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#hotelType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#hotelType> <http://www.w3.org/2000/01/rdf-schema#comment> "Bla bla bla" .
+<http://www.owl-ontologies.com/ont#hotelType> <http://www.w3.org/2000/01/rdf-schema#label> "hotelType" .
+# 
+# http://www.owl-ontologies.com/ont#location
+<http://www.owl-ontologies.com/ont#location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#location> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#location> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#location> <http://www.w3.org/2000/01/rdf-schema#comment> "Where are me?" .
+<http://www.owl-ontologies.com/ont#location> <http://www.w3.org/2000/01/rdf-schema#label> "location" .
+# 
+# http://www.owl-ontologies.com/ont#name
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#comment> "What is my name?" .
+<http://www.owl-ontologies.com/ont#name> <http://www.w3.org/2000/01/rdf-schema#label> "name" .
+# 
+# http://www.owl-ontologies.com/ont#pricePerNight
+<http://www.owl-ontologies.com/ont#pricePerNight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#pricePerNight> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#pricePerNight> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#pricePerNight> <http://www.w3.org/2000/01/rdf-schema#comment> "Excuse me, Sir,What is the price for 1 night?" .
+<http://www.owl-ontologies.com/ont#pricePerNight> <http://www.w3.org/2000/01/rdf-schema#label> "pricePerNight" .
+# 
+# http://www.owl-ontologies.com/ont#rating
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/2000/01/rdf-schema#comment> "My personal score is..." .
+<http://www.owl-ontologies.com/ont#rating> <http://www.w3.org/2000/01/rdf-schema#label> "rating" .
+# 
+# http://www.owl-ontologies.com/ont#stars
+<http://www.owl-ontologies.com/ont#stars> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#stars> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#stars> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<http://www.owl-ontologies.com/ont#stars> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#stars> <http://www.w3.org/2000/01/rdf-schema#label> "stars" .
+# 
+# http://www.owl-ontologies.com/ont#transportType
+<http://www.owl-ontologies.com/ont#transportType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#transportType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#transportType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#transportType> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#transportType> <http://www.w3.org/2000/01/rdf-schema#label> "transportType" .
+# 
+# http://www.owl-ontologies.com/ont#type
+<http://www.owl-ontologies.com/ont#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.owl-ontologies.com/ont#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#type> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.owl-ontologies.com/ont#type> <http://www.w3.org/2000/01/rdf-schema#comment> "..." .
+<http://www.owl-ontologies.com/ont#type> <http://www.w3.org/2000/01/rdf-schema#label> "type" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.owl-ontologies.com/ont#Attraction
+<http://www.owl-ontologies.com/ont#Attraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Attraction> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.owl-ontologies.com/ont#City> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.owl-ontologies.com/ont#hasAttraction> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.owl-ontologies.com/ont#Attraction> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A place of interest for tourists or visitors\"" .
+<http://www.owl-ontologies.com/ont#Attraction> <http://www.w3.org/2000/01/rdf-schema#label> "Attraction" .
+# 
+# http://www.owl-ontologies.com/ont#Bike
+<http://www.owl-ontologies.com/ont#Bike> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Bike> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Private> .
+<http://www.owl-ontologies.com/ont#Bike> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Two wheels, zero emissions, and 100% chance of sore legs.\"" .
+<http://www.owl-ontologies.com/ont#Bike> <http://www.w3.org/2000/01/rdf-schema#label> "Bike" .
+# 
+# http://www.owl-ontologies.com/ont#Budget
+<http://www.owl-ontologies.com/ont#Budget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Budget> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#Budget> <http://www.w3.org/2000/01/rdf-schema#comment> "\"An affordable hotel with basic amenities.\"" .
+<http://www.owl-ontologies.com/ont#Budget> <http://www.w3.org/2000/01/rdf-schema#label> "Budget" .
+# 
+# http://www.owl-ontologies.com/ont#Bus
+<http://www.owl-ontologies.com/ont#Bus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Bus> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Public> .
+<http://www.owl-ontologies.com/ont#Bus> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A magical box that stops at every corner and always arrives when you give up.\"" .
+<http://www.owl-ontologies.com/ont#Bus> <http://www.w3.org/2000/01/rdf-schema#label> "Bus" .
+# 
+# http://www.owl-ontologies.com/ont#Business
+<http://www.owl-ontologies.com/ont#Business> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Business> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#Business> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A hotel designed for business travelers with work-oriented services.\"" .
+<http://www.owl-ontologies.com/ont#Business> <http://www.w3.org/2000/01/rdf-schema#label> "Business" .
+# 
+# http://www.owl-ontologies.com/ont#ChillAndRelax
+<http://www.owl-ontologies.com/ont#ChillAndRelax> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#ChillAndRelax> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#ChillAndRelax> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Come for the food, stay because you forgot what day it is. Cozy vibes included.\"" .
+<http://www.owl-ontologies.com/ont#ChillAndRelax> <http://www.w3.org/2000/01/rdf-schema#label> "ChillAndRelax" .
+# 
+# http://www.owl-ontologies.com/ont#City
+<http://www.owl-ontologies.com/ont#City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#City> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A large human settlement where attractions, events, and services are offered.\"" .
+<http://www.owl-ontologies.com/ont#City> <http://www.w3.org/2000/01/rdf-schema#label> "City" .
+# 
+# http://www.owl-ontologies.com/ont#Cultural
+<http://www.owl-ontologies.com/ont#Cultural> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Cultural> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#Cultural> <http://www.w3.org/2000/01/rdf-schema#comment> "\"An event showcasing artistic or traditional cultural expression.\"" .
+<http://www.owl-ontologies.com/ont#Cultural> <http://www.w3.org/2000/01/rdf-schema#label> "Cultural" .
+# 
+# http://www.owl-ontologies.com/ont#Event
+<http://www.owl-ontologies.com/ont#Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Event> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#date> .
+_:genid2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.owl-ontologies.com/ont#date> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.owl-ontologies.com/ont#Event> <http://www.w3.org/2000/01/rdf-schema#comment> "\"An organized occasion taking place at a specific time and location.\"" .
+<http://www.owl-ontologies.com/ont#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event" .
+# 
+# http://www.owl-ontologies.com/ont#FastFood
+<http://www.owl-ontologies.com/ont#FastFood> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#FastFood> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#FastFood> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Where flavor meets speed and nutrition negotiates with ketchup.\"" .
+<http://www.owl-ontologies.com/ont#FastFood> <http://www.w3.org/2000/01/rdf-schema#label> "FastFood" .
+# 
+# http://www.owl-ontologies.com/ont#Festival
+<http://www.owl-ontologies.com/ont#Festival> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Festival> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#Festival> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A celebration or cultural event, often recurring annually.\"" .
+<http://www.owl-ontologies.com/ont#Festival> <http://www.w3.org/2000/01/rdf-schema#label> "Festival" .
+# 
+# http://www.owl-ontologies.com/ont#Hotel
+<http://www.owl-ontologies.com/ont#Hotel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Hotel> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.owl-ontologies.com/ont#City> .
+_:genid3 <http://www.w3.org/2002/07/owl#onProperty> <http://www.owl-ontologies.com/ont#locatedIn> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.owl-ontologies.com/ont#Hotel> <http://www.w3.org/2000/01/rdf-schema#comment> "\"An establishment providing accommodation to travelers and guests.\"" .
+<http://www.owl-ontologies.com/ont#Hotel> <http://www.w3.org/2000/01/rdf-schema#label> "Hotel" .
+# 
+# http://www.owl-ontologies.com/ont#Luxury
+<http://www.owl-ontologies.com/ont#Luxury> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Luxury> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Hotel> .
+<http://www.owl-ontologies.com/ont#Luxury> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A high-end hotel offering premium services and comfort.\"" .
+<http://www.owl-ontologies.com/ont#Luxury> <http://www.w3.org/2000/01/rdf-schema#label> "Luxury" .
+# 
+# http://www.owl-ontologies.com/ont#Metro
+<http://www.owl-ontologies.com/ont#Metro> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Metro> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Public> .
+<http://www.owl-ontologies.com/ont#Metro> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Underground hope and despair on rails. Mind the gap.\"" .
+<http://www.owl-ontologies.com/ont#Metro> <http://www.w3.org/2000/01/rdf-schema#label> "Metro" .
+# 
+# http://www.owl-ontologies.com/ont#Monument
+<http://www.owl-ontologies.com/ont#Monument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Monument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#Monument> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A structure erected to commemorate a person or event.\"" .
+<http://www.owl-ontologies.com/ont#Monument> <http://www.w3.org/2000/01/rdf-schema#label> "Monument" .
+# 
+# http://www.owl-ontologies.com/ont#Museum
+<http://www.owl-ontologies.com/ont#Museum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Museum> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#Museum> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A building where historical, scientific, or artistic items are exhibited.\"" .
+<http://www.owl-ontologies.com/ont#Museum> <http://www.w3.org/2000/01/rdf-schema#label> "Museum" .
+# 
+# http://www.owl-ontologies.com/ont#Park
+<http://www.owl-ontologies.com/ont#Park> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Park> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Attraction> .
+<http://www.owl-ontologies.com/ont#Park> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A public green area for recreation.\"" .
+<http://www.owl-ontologies.com/ont#Park> <http://www.w3.org/2000/01/rdf-schema#label> "Park" .
+# 
+# http://www.owl-ontologies.com/ont#Private
+<http://www.owl-ontologies.com/ont#Private> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Private> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#Private> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Because sometimes you just want to travel with questionable music alone.\"" .
+<http://www.owl-ontologies.com/ont#Private> <http://www.w3.org/2000/01/rdf-schema#label> "Private" .
+# 
+# http://www.owl-ontologies.com/ont#Public
+<http://www.owl-ontologies.com/ont#Public> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Public> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Transport> .
+<http://www.owl-ontologies.com/ont#Public> <http://www.w3.org/2000/01/rdf-schema#comment> "\"You’ll get there eventually—just not alone.\"" .
+<http://www.owl-ontologies.com/ont#Public> <http://www.w3.org/2000/01/rdf-schema#label> "Public" .
+# 
+# http://www.owl-ontologies.com/ont#Restaurant
+<http://www.owl-ontologies.com/ont#Restaurant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Restaurant> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.owl-ontologies.com/ont#City> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.owl-ontologies.com/ont#locatedIn> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.owl-ontologies.com/ont#Restaurant> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A place where meals are served to customers.\"" .
+<http://www.owl-ontologies.com/ont#Restaurant> <http://www.w3.org/2000/01/rdf-schema#label> "Restaurant" .
+# 
+# http://www.owl-ontologies.com/ont#Sports
+<http://www.owl-ontologies.com/ont#Sports> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Sports> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Event> .
+<http://www.owl-ontologies.com/ont#Sports> <http://www.w3.org/2000/01/rdf-schema#comment> "\"An event involving athletic competition or physical activities.\"" .
+<http://www.owl-ontologies.com/ont#Sports> <http://www.w3.org/2000/01/rdf-schema#label> "Sports" .
+# 
+# http://www.owl-ontologies.com/ont#Taxi
+<http://www.owl-ontologies.com/ont#Taxi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Taxi> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Private> .
+<http://www.owl-ontologies.com/ont#Taxi> <http://www.w3.org/2000/01/rdf-schema#comment> "\"For when you're late, wet, or existentially done with walking.\"" .
+<http://www.owl-ontologies.com/ont#Taxi> <http://www.w3.org/2000/01/rdf-schema#label> "Taxi" .
+# 
+# http://www.owl-ontologies.com/ont#Traditional
+<http://www.owl-ontologies.com/ont#Traditional> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Traditional> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.owl-ontologies.com/ont#Restaurant> .
+<http://www.owl-ontologies.com/ont#Traditional> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Grandma would approve. Local dishes served without pretension (or avocado foam).\"" .
+<http://www.owl-ontologies.com/ont#Traditional> <http://www.w3.org/2000/01/rdf-schema#label> "Traditional" .
+# 
+# http://www.owl-ontologies.com/ont#Transport
+<http://www.owl-ontologies.com/ont#Transport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.owl-ontologies.com/ont#Transport> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid5 .
+_:genid5 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.owl-ontologies.com/ont#City> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <http://www.owl-ontologies.com/ont#hasTransport> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.owl-ontologies.com/ont#Transport> <http://www.w3.org/2000/01/rdf-schema#comment> "\"A means of movement available within a city.\"" .
+<http://www.owl-ontologies.com/ont#Transport> <http://www.w3.org/2000/01/rdf-schema#label> "Transport" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://dbpedia.org/resource/Barcelona
+<http://dbpedia.org/resource/Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://dbpedia.org/resource/Barcelona> <http://www.w3.org/2002/07/owl#sameAs> <http://www.owl-ontologies.com/ont#Barcelona> .
+# 
+# http://www.owl-ontologies.com/ont#Barcelona
+# 
+# http://dbpedia.org/resource/Barcelona_Metro
+<http://dbpedia.org/resource/Barcelona_Metro> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://dbpedia.org/resource/Barcelona_Metro> <http://www.w3.org/2002/07/owl#sameAs> <http://www.owl-ontologies.com/ont#Metro_Barcelona> .
+# 
+# http://www.owl-ontologies.com/ont#Metro_Barcelona
+# 
+# http://dbpedia.org/resource/Park_Güell
+<http://dbpedia.org/resource/Park_Güell> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://dbpedia.org/resource/Park_Güell> <http://www.w3.org/2002/07/owl#sameAs> <http://www.owl-ontologies.com/ont#Guell> .
+# 
+# http://www.owl-ontologies.com/ont#Guell
+# 
+# http://www.owl-ontologies.com/ont#Barcelona
+<http://www.owl-ontologies.com/ont#Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.owl-ontologies.com/ont#Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/ont#City> .
+<http://www.owl-ontologies.com/ont#Barcelona> <http://www.owl-ontologies.com/ont#location> "Catalonia, Spain" .
+<http://www.owl-ontologies.com/ont#Barcelona> <http://www.owl-ontologies.com/ont#name> "Barcelona" .
+<http://www.owl-ontologies.com/ont#Barcelona> <http://www.w3.org/2000/01/rdf-schema#comment> "A major Spanish city known for tourism, culture, and architecture." .
+<http://www.owl-ontologies.com/ont#Barcelona> <http://www.w3.org/2000/01/rdf-schema#label> "Barcelona" .
+# 
+# http://www.owl-ontologies.com/ont#Disfrutar
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/ont#Traditional> .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.owl-ontologies.com/ont#locatedIn> <http://www.owl-ontologies.com/ont#Barcelona> .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.owl-ontologies.com/ont#averagePrice> "30.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.owl-ontologies.com/ont#cuisineType> "Spanish" .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.owl-ontologies.com/ont#name> "Antigua" .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.owl-ontologies.com/ont#rating> "4.5"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.w3.org/2000/01/rdf-schema#comment> "A traditional restaurant" .
+<http://www.owl-ontologies.com/ont#Disfrutar> <http://www.w3.org/2000/01/rdf-schema#label> "Antigua" .
+# 
+# http://www.owl-ontologies.com/ont#GaudiTour
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/ont#Cultural> .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.owl-ontologies.com/ont#happensIn> <http://www.owl-ontologies.com/ont#Barcelona> .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.owl-ontologies.com/ont#date> "2025-03-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.owl-ontologies.com/ont#name> "Gaudí Tour" .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.owl-ontologies.com/ont#type> "Architecture Tour" .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.w3.org/2000/01/rdf-schema#comment> "A cultural walking tour focused on Gaudí's works in Barcelona." .
+<http://www.owl-ontologies.com/ont#GaudiTour> <http://www.w3.org/2000/01/rdf-schema#label> "Gaudí Tour" .
+# 
+# http://www.owl-ontologies.com/ont#Guell
+<http://www.owl-ontologies.com/ont#Guell> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/ont#Park> .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.owl-ontologies.com/ont#locatedIn> <http://www.owl-ontologies.com/ont#Barcelona> .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.owl-ontologies.com/ont#name> "Park Güell" .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.owl-ontologies.com/ont#rating> "4.7"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.owl-ontologies.com/ont#type> "Public Park" .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.w3.org/2000/01/rdf-schema#comment> "One of the most iconic parks in Barcelona, designed by Gaudí." .
+<http://www.owl-ontologies.com/ont#Guell> <http://www.w3.org/2000/01/rdf-schema#label> "Park Güell" .
+# 
+# http://www.owl-ontologies.com/ont#HotelRitz
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/ont#Luxury> .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.owl-ontologies.com/ont#locatedIn> <http://www.owl-ontologies.com/ont#Barcelona> .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.owl-ontologies.com/ont#name> "The Palace Barcelona" .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.owl-ontologies.com/ont#pricePerNight> "400.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.owl-ontologies.com/ont#rating> "4.8"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.owl-ontologies.com/ont#stars> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.w3.org/2000/01/rdf-schema#comment> "The Palace Barcelona is the oldest luxury hotel in the city. Our timelines have coincided from the beginning, and we continue to make history together." .
+<http://www.owl-ontologies.com/ont#HotelRitz> <http://www.w3.org/2000/01/rdf-schema#label> "The Palace Barcelona" .
+# 
+# http://www.owl-ontologies.com/ont#Metro_Barcelona
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/ont#Metro> .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.owl-ontologies.com/ont#availableIn> <http://www.owl-ontologies.com/ont#Barcelona> .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.owl-ontologies.com/ont#averageCost> "2.4"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.owl-ontologies.com/ont#company> "TMB" .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.owl-ontologies.com/ont#name> "Barcelona Metro" .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.owl-ontologies.com/ont#transportType> "Underground" .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.w3.org/2000/01/rdf-schema#comment> "The city's main underground public transport system." .
+<http://www.owl-ontologies.com/ont#Metro_Barcelona> <http://www.w3.org/2000/01/rdf-schema#label> "Metro Barcelona" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+<http://www.owl-ontologies.com/e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.owl-ontologies.com/t> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.owl-ontologies.com/r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.owl-ontologies.com/p> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.owl-ontologies.com/ont#h> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<http://www.owl-ontologies.com/ont#s> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:genid17 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid17 <http://www.w3.org/2000/01/rdf-schema#comment> "If a restaurant has an average price greater than 50, it is considered expensive." .
+_:genid17 <http://www.w3.org/2000/01/rdf-schema#label> "ExpensiveRestaurant" .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid17 <http://www.w3.org/2003/11/swrl#body> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid19 .
+_:genid19 <http://www.w3.org/2003/11/swrl#arguments> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "50"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.owl-ontologies.com/p> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid19 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> .
+<http://www.w3.org/2003/11/swrlb#greaterThan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Builtin> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid23 .
+_:genid23 <http://www.w3.org/2003/11/swrl#argument2> <http://www.owl-ontologies.com/p> .
+_:genid23 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/r> .
+_:genid23 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.owl-ontologies.com/ont#averagePrice> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid25 .
+_:genid25 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/r> .
+_:genid25 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.owl-ontologies.com/ont#Restaurant> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid17 <http://www.w3.org/2003/11/swrl#head> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid27 .
+_:genid27 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/r> .
+_:genid27 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.owl-ontologies.com/ont#Restaurant> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid28 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid28 <http://www.w3.org/2000/01/rdf-schema#comment> "If a hotel has more than 4 stars, it is classified as Luxury." .
+_:genid28 <http://www.w3.org/2000/01/rdf-schema#label> "HotelToLuxury" .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid28 <http://www.w3.org/2003/11/swrl#body> _:genid35 .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid30 .
+_:genid30 <http://www.w3.org/2003/11/swrl#arguments> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.owl-ontologies.com/ont#s> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid30 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid34 .
+_:genid34 <http://www.w3.org/2003/11/swrl#argument2> <http://www.owl-ontologies.com/ont#s> .
+_:genid34 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/ont#h> .
+_:genid34 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.owl-ontologies.com/ont#stars> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid36 .
+_:genid36 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/ont#h> .
+_:genid36 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.owl-ontologies.com/ont#Hotel> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid28 <http://www.w3.org/2003/11/swrl#head> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid38 .
+_:genid38 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/ont#h> .
+_:genid38 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.owl-ontologies.com/ont#Luxury> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid6 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid6 <http://www.w3.org/2000/01/rdf-schema#comment> "If an event has the type \"Festival\", it is classified as a Festival." .
+_:genid6 <http://www.w3.org/2000/01/rdf-schema#label> "EventToFestival" .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid6 <http://www.w3.org/2003/11/swrl#body> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid8 .
+_:genid8 <http://www.w3.org/2003/11/swrl#arguments> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Festival" .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.owl-ontologies.com/t> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase> .
+<http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Builtin> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#BuiltinAtom> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid12 .
+_:genid12 <http://www.w3.org/2003/11/swrl#argument2> <http://www.owl-ontologies.com/t> .
+_:genid12 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/e> .
+_:genid12 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.owl-ontologies.com/ont#type> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid14 .
+_:genid14 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/e> .
+_:genid14 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.owl-ontologies.com/ont#Event> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid6 <http://www.w3.org/2003/11/swrl#head> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid16 .
+_:genid16 <http://www.w3.org/2003/11/swrl#argument1> <http://www.owl-ontologies.com/e> .
+_:genid16 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.owl-ontologies.com/ont#Festival> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

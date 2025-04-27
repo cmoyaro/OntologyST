@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Smart Tourism Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://www.owl-ontologies.com/ont#","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.owl-ontologies.com/ont#","name":"Smart Tourism Ontology", "headline":"Ontology for representing concepts and entities related to smart tourism, including hotels, attractions, restaurants, transports and events.", "dateReleased":"Mon Apr 28 00:16:47 CEST 2025", "version":"0.0.1", "author":[{"@type":"Person","name":"Christian Moya Royo"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Smart Tourism Ontology</h1>
+
+
+<dl>
+<dt>Latest version:</dt>
+<dd><a href="http://www.owl-ontologies.com/ont#">http://www.owl-ontologies.com/ont#</a></dd>
+<dt>Revision:</dt>
+<dd>0.0.1</dd>
+<dt>Authors:</dt>
+<dd>Christian Moya Royo</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-Creative%20Commons%20Attribution%204.0%20International%20(CC%20BY%204.0)-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Christian Moya Royo. Smart Tourism Ontology. Revision: 0.0.1.</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract">The Smart Tourism Ontology represents the key concepts and relationships involved in the management and promotion of smart tourism ecosystems. It covers entities such as hotels, attractions, restaurants, transport systems, and events, facilitating their semantic connection with cities and travelers through linked data principles.
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction">This ontology has been developed to semantically represent the domain of smart tourism. It covers the main entities such as hotels, attractions, events, restaurants, and transport options, all connected through cities. The Smart Tourism Ontology enables the integration, interoperability, and sharing of tourism-related information within intelligent digital ecosystems, improving the accessibility and reuse of data across platforms and services.
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Smart Tourism Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a>
+   </li>
+   <li>
+      <a href="#Bike" title="http://www.owl-ontologies.com/ont#Bike">Bike</a>
+   </li>
+   <li>
+      <a href="#Budget" title="http://www.owl-ontologies.com/ont#Budget">Budget</a>
+   </li>
+   <li>
+      <a href="#Bus" title="http://www.owl-ontologies.com/ont#Bus">Bus</a>
+   </li>
+   <li>
+      <a href="#Business" title="http://www.owl-ontologies.com/ont#Business">Business</a>
+   </li>
+   <li>
+      <a href="#ChillAndRelax" title="http://www.owl-ontologies.com/ont#ChillAndRelax">ChillAndRelax</a>
+   </li>
+   <li>
+      <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a>
+   </li>
+   <li>
+      <a href="#Cultural" title="http://www.owl-ontologies.com/ont#Cultural">Cultural</a>
+   </li>
+   <li>
+      <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a>
+   </li>
+   <li>
+      <a href="#FastFood" title="http://www.owl-ontologies.com/ont#FastFood">FastFood</a>
+   </li>
+   <li>
+      <a href="#Festival" title="http://www.owl-ontologies.com/ont#Festival">Festival</a>
+   </li>
+   <li>
+      <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a>
+   </li>
+   <li>
+      <a href="#Luxury" title="http://www.owl-ontologies.com/ont#Luxury">Luxury</a>
+   </li>
+   <li>
+      <a href="#Metro" title="http://www.owl-ontologies.com/ont#Metro">Metro</a>
+   </li>
+   <li>
+      <a href="#Monument" title="http://www.owl-ontologies.com/ont#Monument">Monument</a>
+   </li>
+   <li>
+      <a href="#Museum" title="http://www.owl-ontologies.com/ont#Museum">Museum</a>
+   </li>
+   <li>
+      <a href="#Park" title="http://www.owl-ontologies.com/ont#Park">Park</a>
+   </li>
+   <li>
+      <a href="#Private" title="http://www.owl-ontologies.com/ont#Private">Private</a>
+   </li>
+   <li>
+      <a href="#Public" title="http://www.owl-ontologies.com/ont#Public">Public</a>
+   </li>
+   <li>
+      <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a>
+   </li>
+   <li>
+      <a href="#Sports" title="http://www.owl-ontologies.com/ont#Sports">Sports</a>
+   </li>
+   <li>
+      <a href="#Taxi" title="http://www.owl-ontologies.com/ont#Taxi">Taxi</a>
+   </li>
+   <li>
+      <a href="#Traditional" title="http://www.owl-ontologies.com/ont#Traditional">Traditional</a>
+   </li>
+   <li>
+      <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#availableIn" title="http://www.owl-ontologies.com/ont#availableIn">available in</a>
+   </li>
+   <li>
+      <a href="#happensIn" title="http://www.owl-ontologies.com/ont#happensIn">happens in</a>
+   </li>
+   <li>
+      <a href="#hasAttraction" title="http://www.owl-ontologies.com/ont#hasAttraction">has attraction</a>
+   </li>
+   <li>
+      <a href="#hasEvent" title="http://www.owl-ontologies.com/ont#hasEvent">has event</a>
+   </li>
+   <li>
+      <a href="#hasHotel" title="http://www.owl-ontologies.com/ont#hasHotel">has hotel</a>
+   </li>
+   <li>
+      <a href="#hasRestaurant" title="http://www.owl-ontologies.com/ont#hasRestaurant">has restaurant</a>
+   </li>
+   <li>
+      <a href="#hasTransport" title="http://www.owl-ontologies.com/ont#hasTransport">has transport</a>
+   </li>
+   <li>
+      <a href="#hostsEvent" title="http://www.owl-ontologies.com/ont#hostsEvent">
+         <span>hosts Event</span>
+      </a>
+   </li>
+   <li>
+      <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a>
+   </li>
+   <li>
+      <a href="#offersService" title="http://www.owl-ontologies.com/ont#offersService">offers service</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#averageCost" title="http://www.owl-ontologies.com/ont#averageCost">averageCost</a>
+   </li>
+   <li>
+      <a href="#averagePrice" title="http://www.owl-ontologies.com/ont#averagePrice">averagePrice</a>
+   </li>
+   <li>
+      <a href="#company" title="http://www.owl-ontologies.com/ont#company">company</a>
+   </li>
+   <li>
+      <a href="#cuisineType" title="http://www.owl-ontologies.com/ont#cuisineType">cuisineType</a>
+   </li>
+   <li>
+      <a href="#date" title="http://www.owl-ontologies.com/ont#date">date</a>
+   </li>
+   <li>
+      <a href="#hotelType" title="http://www.owl-ontologies.com/ont#hotelType">hotelType</a>
+   </li>
+   <li>
+      <a href="#location" title="http://www.owl-ontologies.com/ont#location">location</a>
+   </li>
+   <li>
+      <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a>
+   </li>
+   <li>
+      <a href="#pricePerNight" title="http://www.owl-ontologies.com/ont#pricePerNight">pricePerNight</a>
+   </li>
+   <li>
+      <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a>
+   </li>
+   <li>
+      <a href="#stars" title="http://www.owl-ontologies.com/ont#stars">stars</a>
+   </li>
+   <li>
+      <a href="#transportType" title="http://www.owl-ontologies.com/ont#transportType">transportType</a>
+   </li>
+   <li>
+      <a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/abstract" title="http://purl.org/dc/terms/abstract">
+         <span>abstract</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/mod#createdWith" title="https://w3id.org/mod#createdWith">
+         <span>created With</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+         title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+         <span>is Rule Enabled</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">
+         <span>license</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/title" title="http://purl.org/dc/elements/1.1/title">
+         <span>title</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#versionInfo" title="http://www.w3.org/2002/07/owl#versionInfo">
+         <span>version Info</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Disfrutar" title="http://www.owl-ontologies.com/ont#Disfrutar">Antigua</a>
+   </li>
+   <li>
+      <a href="#http://dbpedia.org/resource/Barcelona" title="http://dbpedia.org/resource/Barcelona">
+         <span>Barcelona</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a>
+   </li>
+   <li>
+      <a href="#http://dbpedia.org/resource/Barcelona_Metro" title="http://dbpedia.org/resource/Barcelona_Metro">
+         <span>Barcelona Metro</span>
+      </a>
+   </li>
+   <li>
+      <a href="#GaudiTour" title="http://www.owl-ontologies.com/ont#GaudiTour">Gaudí Tour</a>
+   </li>
+   <li>
+      <a href="#Metro_Barcelona"
+         title="http://www.owl-ontologies.com/ont#Metro_Barcelona">Metro Barcelona</a>
+   </li>
+   <li>
+      <a href="#http://dbpedia.org/resource/Park_Güell" title="http://dbpedia.org/resource/Park_Güell">
+         <span>Park Güell</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Guell" title="http://www.owl-ontologies.com/ont#Guell">Park Güell</a>
+   </li>
+   <li>
+      <a href="#HotelRitz" title="http://www.owl-ontologies.com/ont#HotelRitz">The Palace Barcelona</a>
+   </li>
+</ul><h4> SWRL Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#d4e1278">EventToFestival</a>
+   </li>
+   <li>
+      <a href="#d4e1033">ExpensiveRestaurant</a>
+   </li>
+   <li>
+      <a href="#d4e1155">HotelToLuxury</a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Smart Tourism Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">This ontology models the main components of smart tourism, connecting cities with their services and events through semantic relationships.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Smart Tourism Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Smart Tourism Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a></li>
+  <li><a href="#Bike" title="http://www.owl-ontologies.com/ont#Bike">Bike</a></li>
+  <li><a href="#Budget" title="http://www.owl-ontologies.com/ont#Budget">Budget</a></li>
+  <li><a href="#Bus" title="http://www.owl-ontologies.com/ont#Bus">Bus</a></li>
+  <li><a href="#Business" title="http://www.owl-ontologies.com/ont#Business">Business</a></li>
+  <li><a href="#ChillAndRelax" title="http://www.owl-ontologies.com/ont#ChillAndRelax">ChillAndRelax</a></li>
+  <li><a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a></li>
+  <li><a href="#Cultural" title="http://www.owl-ontologies.com/ont#Cultural">Cultural</a></li>
+  <li><a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a></li>
+  <li><a href="#FastFood" title="http://www.owl-ontologies.com/ont#FastFood">FastFood</a></li>
+  <li><a href="#Festival" title="http://www.owl-ontologies.com/ont#Festival">Festival</a></li>
+  <li><a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a></li>
+  <li><a href="#Luxury" title="http://www.owl-ontologies.com/ont#Luxury">Luxury</a></li>
+  <li><a href="#Metro" title="http://www.owl-ontologies.com/ont#Metro">Metro</a></li>
+  <li><a href="#Monument" title="http://www.owl-ontologies.com/ont#Monument">Monument</a></li>
+  <li><a href="#Museum" title="http://www.owl-ontologies.com/ont#Museum">Museum</a></li>
+  <li><a href="#Park" title="http://www.owl-ontologies.com/ont#Park">Park</a></li>
+  <li><a href="#Private" title="http://www.owl-ontologies.com/ont#Private">Private</a></li>
+  <li><a href="#Public" title="http://www.owl-ontologies.com/ont#Public">Public</a></li>
+  <li><a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a></li>
+  <li><a href="#Sports" title="http://www.owl-ontologies.com/ont#Sports">Sports</a></li>
+  <li><a href="#Taxi" title="http://www.owl-ontologies.com/ont#Taxi">Taxi</a></li>
+  <li><a href="#Traditional" title="http://www.owl-ontologies.com/ont#Traditional">Traditional</a></li>
+  <li><a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a></li>
+ </ul>
+ <div class="entity" id="Attraction">
+  <h3>Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Attraction</p>
+  <div class="comment">
+   <span class="markdown">"A place of interest for tourists or visitors"</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#hasAttraction" title="http://www.owl-ontologies.com/ont#hasAttraction">has attraction</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Monument" title="http://www.owl-ontologies.com/ont#Monument">Monument</a> <sup class="type-c" title="class">c</sup>, <a href="#Museum" title="http://www.owl-ontologies.com/ont#Museum">Museum</a> <sup class="type-c" title="class">c</sup>, <a href="#Park" title="http://www.owl-ontologies.com/ont#Park">Park</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup>, <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasAttraction" title="http://www.owl-ontologies.com/ont#hasAttraction">has attraction</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Bike">
+  <h3>Bike<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Bike</p>
+  <div class="comment">
+   <span class="markdown">"Two wheels, zero emissions, and 100% chance of sore legs."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Private" title="http://www.owl-ontologies.com/ont#Private">Private</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Budget">
+  <h3>Budget<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Budget</p>
+  <div class="comment">
+   <span class="markdown">"An affordable hotel with basic amenities."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Bus">
+  <h3>Bus<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Bus</p>
+  <div class="comment">
+   <span class="markdown">"A magical box that stops at every corner and always arrives when you give up."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Public" title="http://www.owl-ontologies.com/ont#Public">Public</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Business">
+  <h3>Business<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Business</p>
+  <div class="comment">
+   <span class="markdown">"A hotel designed for business travelers with work-oriented services."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ChillAndRelax">
+  <h3>ChillAndRelax<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#ChillAndRelax</p>
+  <div class="comment">
+   <span class="markdown">"Come for the food, stay because you forgot what day it is. Cozy vibes included."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="City">
+  <h3>City<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#City</p>
+  <div class="comment">
+   <span class="markdown">"A large human settlement where attractions, events, and services are offered."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasAttraction" title="http://www.owl-ontologies.com/ont#hasAttraction">has attraction</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasEvent" title="http://www.owl-ontologies.com/ont#hasEvent">has event</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasHotel" title="http://www.owl-ontologies.com/ont#hasHotel">has hotel</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRestaurant" title="http://www.owl-ontologies.com/ont#hasRestaurant">has restaurant</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTransport" title="http://www.owl-ontologies.com/ont#hasTransport">has transport</a> <sup class="type-op" title="object property">op</sup>, <a href="#location" title="http://www.owl-ontologies.com/ont#location">location</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#availableIn" title="http://www.owl-ontologies.com/ont#availableIn">available in</a> <sup class="type-op" title="object property">op</sup>, <a href="#happensIn" title="http://www.owl-ontologies.com/ont#happensIn">happens in</a> <sup class="type-op" title="object property">op</sup>, <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Cultural">
+  <h3>Cultural<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Cultural</p>
+  <div class="comment">
+   <span class="markdown">"An event showcasing artistic or traditional cultural expression."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#GaudiTour" title="http://www.owl-ontologies.com/ont#GaudiTour">Gaudí Tour</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Event">
+  <h3>Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Event</p>
+  <div class="comment">
+   <span class="markdown">"An organized occasion taking place at a specific time and location."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#date" title="http://www.owl-ontologies.com/ont#date">date</a> <sup class="type-dp" title="data property">dp</sup> <span class="logic">exactly</span> 1
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Cultural" title="http://www.owl-ontologies.com/ont#Cultural">Cultural</a> <sup class="type-c" title="class">c</sup>, <a href="#Festival" title="http://www.owl-ontologies.com/ont#Festival">Festival</a> <sup class="type-c" title="class">c</sup>, <a href="#Sports" title="http://www.owl-ontologies.com/ont#Sports">Sports</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#date" title="http://www.owl-ontologies.com/ont#date">date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#happensIn" title="http://www.owl-ontologies.com/ont#happensIn">happens in</a> <sup class="type-op" title="object property">op</sup>, <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasEvent" title="http://www.owl-ontologies.com/ont#hasEvent">has event</a> <sup class="type-op" title="object property">op</sup>, <a href="#hostsEvent" title="http://www.owl-ontologies.com/ont#hostsEvent">hosts Event</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FastFood">
+  <h3>FastFood<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#FastFood</p>
+  <div class="comment">
+   <span class="markdown">"Where flavor meets speed and nutrition negotiates with ketchup."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Festival">
+  <h3>Festival<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Festival</p>
+  <div class="comment">
+   <span class="markdown">"A celebration or cultural event, often recurring annually."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Hotel">
+  <h3>Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Hotel</p>
+  <div class="comment">
+   <span class="markdown">"An establishment providing accommodation to travelers and guests."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Budget" title="http://www.owl-ontologies.com/ont#Budget">Budget</a> <sup class="type-c" title="class">c</sup>, <a href="#Business" title="http://www.owl-ontologies.com/ont#Business">Business</a> <sup class="type-c" title="class">c</sup>, <a href="#Luxury" title="http://www.owl-ontologies.com/ont#Luxury">Luxury</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hostsEvent" title="http://www.owl-ontologies.com/ont#hostsEvent">hosts Event</a> <sup class="type-op" title="object property">op</sup>, <a href="#hotelType" title="http://www.owl-ontologies.com/ont#hotelType">hotelType</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup>, <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#offersService" title="http://www.owl-ontologies.com/ont#offersService">offers service</a> <sup class="type-op" title="object property">op</sup>, <a href="#pricePerNight" title="http://www.owl-ontologies.com/ont#pricePerNight">pricePerNight</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#stars" title="http://www.owl-ontologies.com/ont#stars">stars</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasHotel" title="http://www.owl-ontologies.com/ont#hasHotel">has hotel</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Luxury">
+  <h3>Luxury<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Luxury</p>
+  <div class="comment">
+   <span class="markdown">"A high-end hotel offering premium services and comfort."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#HotelRitz" title="http://www.owl-ontologies.com/ont#HotelRitz">The Palace Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Metro">
+  <h3>Metro<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Metro</p>
+  <div class="comment">
+   <span class="markdown">"Underground hope and despair on rails. Mind the gap."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Public" title="http://www.owl-ontologies.com/ont#Public">Public</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Metro_Barcelona" title="http://www.owl-ontologies.com/ont#Metro_Barcelona">Metro Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Monument">
+  <h3>Monument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Monument</p>
+  <div class="comment">
+   <span class="markdown">"A structure erected to commemorate a person or event."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Museum">
+  <h3>Museum<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Museum</p>
+  <div class="comment">
+   <span class="markdown">"A building where historical, scientific, or artistic items are exhibited."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Park">
+  <h3>Park<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Park</p>
+  <div class="comment">
+   <span class="markdown">"A public green area for recreation."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Guell" title="http://www.owl-ontologies.com/ont#Guell">Park Güell</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Private">
+  <h3>Private<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Private</p>
+  <div class="comment">
+   <span class="markdown">"Because sometimes you just want to travel with questionable music alone."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Bike" title="http://www.owl-ontologies.com/ont#Bike">Bike</a> <sup class="type-c" title="class">c</sup>, <a href="#Taxi" title="http://www.owl-ontologies.com/ont#Taxi">Taxi</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Public">
+  <h3>Public<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Public</p>
+  <div class="comment">
+   <span class="markdown">"You’ll get there eventually—just not alone."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Bus" title="http://www.owl-ontologies.com/ont#Bus">Bus</a> <sup class="type-c" title="class">c</sup>, <a href="#Metro" title="http://www.owl-ontologies.com/ont#Metro">Metro</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Restaurant">
+  <h3>Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Restaurant</p>
+  <div class="comment">
+   <span class="markdown">"A place where meals are served to customers."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ChillAndRelax" title="http://www.owl-ontologies.com/ont#ChillAndRelax">ChillAndRelax</a> <sup class="type-c" title="class">c</sup>, <a href="#FastFood" title="http://www.owl-ontologies.com/ont#FastFood">FastFood</a> <sup class="type-c" title="class">c</sup>, <a href="#Traditional" title="http://www.owl-ontologies.com/ont#Traditional">Traditional</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#averagePrice" title="http://www.owl-ontologies.com/ont#averagePrice">averagePrice</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#cuisineType" title="http://www.owl-ontologies.com/ont#cuisineType">cuisineType</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup>, <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRestaurant" title="http://www.owl-ontologies.com/ont#hasRestaurant">has restaurant</a> <sup class="type-op" title="object property">op</sup>, <a href="#offersService" title="http://www.owl-ontologies.com/ont#offersService">offers service</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Sports">
+  <h3>Sports<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Sports</p>
+  <div class="comment">
+   <span class="markdown">"An event involving athletic competition or physical activities."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Taxi">
+  <h3>Taxi<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Taxi</p>
+  <div class="comment">
+   <span class="markdown">"For when you're late, wet, or existentially done with walking."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Private" title="http://www.owl-ontologies.com/ont#Private">Private</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Traditional">
+  <h3>Traditional<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Traditional</p>
+  <div class="comment">
+   <span class="markdown">"Grandma would approve. Local dishes served without pretension (or avocado foam)."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Disfrutar" title="http://www.owl-ontologies.com/ont#Disfrutar">Antigua</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Transport">
+  <h3>Transport<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Transport</p>
+  <div class="comment">
+   <span class="markdown">"A means of movement available within a city."</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#hasTransport" title="http://www.owl-ontologies.com/ont#hasTransport">has transport</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Private" title="http://www.owl-ontologies.com/ont#Private">Private</a> <sup class="type-c" title="class">c</sup>, <a href="#Public" title="http://www.owl-ontologies.com/ont#Public">Public</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#availableIn" title="http://www.owl-ontologies.com/ont#availableIn">available in</a> <sup class="type-op" title="object property">op</sup>, <a href="#averageCost" title="http://www.owl-ontologies.com/ont#averageCost">averageCost</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#company" title="http://www.owl-ontologies.com/ont#company">company</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#transportType" title="http://www.owl-ontologies.com/ont#transportType">transportType</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasTransport" title="http://www.owl-ontologies.com/ont#hasTransport">has transport</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#availableIn" title="http://www.owl-ontologies.com/ont#availableIn">available in</a></li>
+  <li><a href="#happensIn" title="http://www.owl-ontologies.com/ont#happensIn">happens in</a></li>
+  <li><a href="#hasAttraction" title="http://www.owl-ontologies.com/ont#hasAttraction">has attraction</a></li>
+  <li><a href="#hasEvent" title="http://www.owl-ontologies.com/ont#hasEvent">has event</a></li>
+  <li><a href="#hasHotel" title="http://www.owl-ontologies.com/ont#hasHotel">has hotel</a></li>
+  <li><a href="#hasRestaurant" title="http://www.owl-ontologies.com/ont#hasRestaurant">has restaurant</a></li>
+  <li><a href="#hasTransport" title="http://www.owl-ontologies.com/ont#hasTransport">has transport</a></li>
+  <li><a href="#hostsEvent" title="http://www.owl-ontologies.com/ont#hostsEvent"> <span>hosts Event</span> </a></li>
+  <li><a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a></li>
+  <li><a href="#offersService" title="http://www.owl-ontologies.com/ont#offersService">offers service</a></li>
+ </ul>
+ <div class="entity" id="availableIn">
+  <h3>available in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#availableIn</p>
+  <div class="comment">
+   <span class="markdown">"Indicates that a transport option is available in a specific city."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="happensIn">
+  <h3>happens in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#happensIn</p>
+  <div class="comment">
+   <span class="markdown">"Links an event to the city where it occurs."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAttraction">
+  <h3>has attraction<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hasAttraction</p>
+  <div class="comment">
+   <span class="markdown">"Links a city to its tourist attractions."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasEvent">
+  <h3>has event<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hasEvent</p>
+  <div class="comment">
+   <span class="markdown">"Specifies that a city offers scheduled events."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasHotel">
+  <h3>has hotel<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hasHotel</p>
+  <div class="comment">
+   <span class="markdown">"Indicates hotels available in a given city."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRestaurant">
+  <h3>has restaurant<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hasRestaurant</p>
+  <div class="comment">
+   <span class="markdown">"Indicates restaurants available in a given city."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTransport">
+  <h3>has transport<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hasTransport</p>
+  <div class="comment">
+   <span class="markdown">"Specifies that a city has access to various means of transport."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hostsEvent">
+  <h3>hosts Event<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hostsEvent</p>
+  <div class="comment">
+   <span class="markdown">"Specifies that a hotel hosts or organizes events."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="locatedIn">
+  <h3>located in<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#locatedIn</p>
+  <div class="comment">
+   <span class="markdown">"Links an entity (e.g. hotel, restaurant, attraction) to the city where it is located."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="offersService">
+  <h3>offers service<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#offersService</p>
+  <div class="comment">
+   <span class="markdown">"Indicates that a hotel offers access to a restaurant service."</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#averageCost" title="http://www.owl-ontologies.com/ont#averageCost">averageCost</a></li>
+  <li><a href="#averagePrice" title="http://www.owl-ontologies.com/ont#averagePrice">averagePrice</a></li>
+  <li><a href="#company" title="http://www.owl-ontologies.com/ont#company">company</a></li>
+  <li><a href="#cuisineType" title="http://www.owl-ontologies.com/ont#cuisineType">cuisineType</a></li>
+  <li><a href="#date" title="http://www.owl-ontologies.com/ont#date">date</a></li>
+  <li><a href="#hotelType" title="http://www.owl-ontologies.com/ont#hotelType">hotelType</a></li>
+  <li><a href="#location" title="http://www.owl-ontologies.com/ont#location">location</a></li>
+  <li><a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a></li>
+  <li><a href="#pricePerNight" title="http://www.owl-ontologies.com/ont#pricePerNight">pricePerNight</a></li>
+  <li><a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a></li>
+  <li><a href="#stars" title="http://www.owl-ontologies.com/ont#stars">stars</a></li>
+  <li><a href="#transportType" title="http://www.owl-ontologies.com/ont#transportType">transportType</a></li>
+  <li><a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a></li>
+ </ul>
+ <div class="entity" id="averageCost">
+  <h3>averageCost<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#averageCost</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="averagePrice">
+  <h3>averagePrice<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#averagePrice</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="company">
+  <h3>company<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#company</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="cuisineType">
+  <h3>cuisineType<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#cuisineType</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="date">
+  <h3>date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#date</p>
+  <div class="comment">
+   <span class="markdown">date</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hotelType">
+  <h3>hotelType<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#hotelType</p>
+  <div class="comment">
+   <span class="markdown">Bla bla bla</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="location">
+  <h3>location<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#location</p>
+  <div class="comment">
+   <span class="markdown">Where are me?</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="name">
+  <h3>name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#name</p>
+  <div class="comment">
+   <span class="markdown">What is my name?</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="pricePerNight">
+  <h3>pricePerNight<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#pricePerNight</p>
+  <div class="comment">
+   <span class="markdown">Excuse me, Sir,What is the price for 1 night?</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="rating">
+  <h3>rating<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#rating</p>
+  <div class="comment">
+   <span class="markdown">My personal score is...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="stars">
+  <h3>stars<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#stars</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#int" target="_blank" title="http://www.w3.org/2001/XMLSchema#int">int</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="transportType">
+  <h3>transportType<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#transportType</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Transport" title="http://www.owl-ontologies.com/ont#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="type">
+  <h3>type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#type</p>
+  <div class="comment">
+   <span class="markdown">...</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.owl-ontologies.com/ont#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://purl.org/dc/terms/abstract" title="http://purl.org/dc/terms/abstract"> <span>abstract</span> </a></li>
+  <li><a href="#https://w3id.org/mod#createdWith" title="https://w3id.org/mod#createdWith"> <span>created With</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator"> <span>creator</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description"> <span>description</span> </a></li>
+  <li><a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"> <span>is Rule Enabled</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license"> <span>license</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/title" title="http://purl.org/dc/elements/1.1/title"> <span>title</span> </a></li>
+  <li><a href="#http://www.w3.org/2002/07/owl#versionInfo" title="http://www.w3.org/2002/07/owl#versionInfo"> <span>version Info</span> </a></li>
+ </ul>
+ <div class="entity" id="http://purl.org/dc/terms/abstract">
+  <h3>abstract<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/abstract</p>
+ </div>
+ <div class="entity" id="https://w3id.org/mod#createdWith">
+  <h3>created With<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/mod#createdWith</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/creator">
+  <h3>creator<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/creator</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/description">
+  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+ </div>
+ <div class="entity" id="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+  <h3>is Rule Enabled<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/license">
+  <h3>license<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/license</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/title</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2002/07/owl#versionInfo">
+  <h3>version Info<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2002/07/owl#versionInfo</p>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#Disfrutar" title="http://www.owl-ontologies.com/ont#Disfrutar">Antigua</a></li>
+  <li><a href="#http://dbpedia.org/resource/Barcelona" title="http://dbpedia.org/resource/Barcelona"> <span>Barcelona</span> </a></li>
+  <li><a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a></li>
+  <li><a href="#http://dbpedia.org/resource/Barcelona_Metro" title="http://dbpedia.org/resource/Barcelona_Metro"> <span>Barcelona Metro</span> </a></li>
+  <li><a href="#GaudiTour" title="http://www.owl-ontologies.com/ont#GaudiTour">Gaudí Tour</a></li>
+  <li><a href="#Metro_Barcelona" title="http://www.owl-ontologies.com/ont#Metro_Barcelona">Metro Barcelona</a></li>
+  <li><a href="#http://dbpedia.org/resource/Park_Güell" title="http://dbpedia.org/resource/Park_Güell"> <span>Park Güell</span> </a></li>
+  <li><a href="#Guell" title="http://www.owl-ontologies.com/ont#Guell">Park Güell</a></li>
+  <li><a href="#HotelRitz" title="http://www.owl-ontologies.com/ont#HotelRitz">The Palace Barcelona</a></li>
+ </ul>
+ <div class="entity" id="Disfrutar">
+  <h3>Antigua<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Disfrutar</p>
+  <div class="comment">
+   <span class="markdown">A traditional restaurant</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Traditional" title="http://www.owl-ontologies.com/ont#Traditional">Traditional</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup> <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#averagePrice" title="http://www.owl-ontologies.com/ont#averagePrice">averagePrice</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"30.0"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dd>
+    <a href="#cuisineType" title="http://www.owl-ontologies.com/ont#cuisineType">cuisineType</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Spanish"</span>
+   </dd>
+   <dd>
+    <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Antigua"</span>
+   </dd>
+   <dd>
+    <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.5"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://dbpedia.org/resource/Barcelona">
+  <h3>Barcelona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://dbpedia.org/resource/Barcelona</p>
+  <dl class="description">
+   <dt>
+    is same as
+   </dt>
+   <dd>
+    <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2002/07/owl#sameAs" target="_blank" title="http://www.w3.org/2002/07/owl#sameAs">same As</a> <sup class="type-ep" title="external property">ep</sup> <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Barcelona">
+  <h3>Barcelona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Barcelona</p>
+  <div class="comment">
+   <span class="markdown">A major Spanish city known for tourism, culture, and architecture.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.owl-ontologies.com/ont#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is same as
+   </dt>
+   <dd>
+    <a href="#http://dbpedia.org/resource/Barcelona" title="http://dbpedia.org/resource/Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#location" title="http://www.owl-ontologies.com/ont#location">location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Catalonia, Spain"</span>
+   </dd>
+   <dd>
+    <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Barcelona"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://dbpedia.org/resource/Barcelona_Metro">
+  <h3>Barcelona Metro<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://dbpedia.org/resource/Barcelona_Metro</p>
+  <dl class="description">
+   <dt>
+    is same as
+   </dt>
+   <dd>
+    <a href="#Metro_Barcelona" title="http://www.owl-ontologies.com/ont#Metro_Barcelona">Metro Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2002/07/owl#sameAs" target="_blank" title="http://www.w3.org/2002/07/owl#sameAs">same As</a> <sup class="type-ep" title="external property">ep</sup> <a href="#Metro_Barcelona" title="http://www.owl-ontologies.com/ont#Metro_Barcelona">Metro Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GaudiTour">
+  <h3>Gaudí Tour<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#GaudiTour</p>
+  <div class="comment">
+   <span class="markdown">A cultural walking tour focused on Gaudí's works in Barcelona.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Cultural" title="http://www.owl-ontologies.com/ont#Cultural">Cultural</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#happensIn" title="http://www.owl-ontologies.com/ont#happensIn">happens in</a> <sup class="type-op" title="object property">op</sup> <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#date" title="http://www.owl-ontologies.com/ont#date">date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2025-03-20"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Gaudí Tour"</span>
+   </dd>
+   <dd>
+    <a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Architecture Tour"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Metro_Barcelona">
+  <h3>Metro Barcelona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Metro_Barcelona</p>
+  <div class="comment">
+   <span class="markdown">The city's main underground public transport system.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Metro" title="http://www.owl-ontologies.com/ont#Metro">Metro</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is same as
+   </dt>
+   <dd>
+    <a href="#http://dbpedia.org/resource/Barcelona_Metro" title="http://dbpedia.org/resource/Barcelona_Metro">Barcelona Metro</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#availableIn" title="http://www.owl-ontologies.com/ont#availableIn">available in</a> <sup class="type-op" title="object property">op</sup> <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#averageCost" title="http://www.owl-ontologies.com/ont#averageCost">averageCost</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2.4"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dd>
+    <a href="#company" title="http://www.owl-ontologies.com/ont#company">company</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"TMB"</span>
+   </dd>
+   <dd>
+    <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Barcelona Metro"</span>
+   </dd>
+   <dd>
+    <a href="#transportType" title="http://www.owl-ontologies.com/ont#transportType">transportType</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Underground"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://dbpedia.org/resource/Park_Güell">
+  <h3>Park Güell<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://dbpedia.org/resource/Park_Güell</p>
+  <dl class="description">
+   <dt>
+    is same as
+   </dt>
+   <dd>
+    <a href="#Guell" title="http://www.owl-ontologies.com/ont#Guell">Park Güell</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2002/07/owl#sameAs" target="_blank" title="http://www.w3.org/2002/07/owl#sameAs">same As</a> <sup class="type-ep" title="external property">ep</sup> <a href="#Guell" title="http://www.owl-ontologies.com/ont#Guell">Park Güell</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Guell">
+  <h3>Park Güell<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#Guell</p>
+  <div class="comment">
+   <span class="markdown">One of the most iconic parks in Barcelona, designed by Gaudí.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Park" title="http://www.owl-ontologies.com/ont#Park">Park</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is same as
+   </dt>
+   <dd>
+    <a href="#http://dbpedia.org/resource/Park_Güell" title="http://dbpedia.org/resource/Park_Güell">Park Güell</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup> <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Park Güell"</span>
+   </dd>
+   <dd>
+    <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.7"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dd>
+    <a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Public Park"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="HotelRitz">
+  <h3>The Palace Barcelona<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.owl-ontologies.com/ont#HotelRitz</p>
+  <div class="comment">
+   <span class="markdown">The Palace Barcelona is the oldest luxury hotel in the city. Our timelines have coincided from the beginning, and we continue to make history together.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Luxury" title="http://www.owl-ontologies.com/ont#Luxury">Luxury</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.owl-ontologies.com/ont#locatedIn">located in</a> <sup class="type-op" title="object property">op</sup> <a href="#Barcelona" title="http://www.owl-ontologies.com/ont#Barcelona">Barcelona</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#name" title="http://www.owl-ontologies.com/ont#name">name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"The Palace Barcelona"</span>
+   </dd>
+   <dd>
+    <a href="#pricePerNight" title="http://www.owl-ontologies.com/ont#pricePerNight">pricePerNight</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"400.0"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dd>
+    <a href="#rating" title="http://www.owl-ontologies.com/ont#rating">rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.8"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dd>
+    <a href="#stars" title="http://www.owl-ontologies.com/ont#stars">stars</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"5"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
+ <h3 id="swrlrules" class="list">SWRL rules</h3>
+ <ul class="hlist">
+  <li><a href="#d4e1278">EventToFestival</a></li>
+  <li><a href="#d4e1033">ExpensiveRestaurant</a></li>
+  <li><a href="#d4e1155">HotelToLuxury</a></li>
+ </ul>
+ <div class="entity" id="d4e1278">
+  <h3>EventToFestival<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>If an event has the type "Festival", it is classified as a Festival.<br><br><a href="#Event" title="http://www.owl-ontologies.com/ont#Event">Event</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#type" title="http://www.owl-ontologies.com/ont#type">type</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase" title="stringEqualIgnoreCase">stringEqualIgnoreCase</a>(?) -&gt; <a href="#Festival" title="http://www.owl-ontologies.com/ont#Festival">Festival</a> <sup class="type-c" title="class">c</sup>(?)</p>
+ </div>
+ <div class="entity" id="d4e1033">
+  <h3>ExpensiveRestaurant<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>If a restaurant has an average price greater than 50, it is considered expensive.<br><br><a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#averagePrice" title="http://www.owl-ontologies.com/ont#averagePrice">averagePrice</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#greaterThan" title="greaterThan">greaterThan</a>(?) -&gt; <a href="#Restaurant" title="http://www.owl-ontologies.com/ont#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>(?)</p>
+ </div>
+ <div class="entity" id="d4e1155">
+  <h3>HotelToLuxury<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>If a hotel has more than 4 stars, it is classified as Luxury.<br><br><a href="#Hotel" title="http://www.owl-ontologies.com/ont#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>(?h) , <a href="#stars" title="http://www.owl-ontologies.com/ont#stars">stars</a> <sup class="type-dp" title="data property">dp</sup>(?h,?s) , <a href="http://www.w3.org/2003/11/swrlb#greaterThan" title="greaterThan">greaterThan</a>(?) -&gt; <a href="#Luxury" title="http://www.owl-ontologies.com/ont#Luxury">Luxury</a> <sup class="type-c" title="class">c</sup>(?h)</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+<sup class="type-ep" title="External Properties">ep</sup>: External Properties
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
